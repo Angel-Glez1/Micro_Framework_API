@@ -1,0 +1,18 @@
+{
+    "name": "angel-alcaraz/framework-api",
+    "description": "este en un microframework muy peque\u0000o que sirve para hacer una api con php",
+    "authors": [
+        {
+            "name": "Angel Armando",
+            "email": "angel.edotensei@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\" : "./"
+        }
+    }
+}
