@@ -24,19 +24,16 @@ class ActiveRecord
     public static function execSP($store, $data = [])
     {
 
-
         try {
 
             $stmt = self::$db->prepare($store);
             $resultado = $stmt->execute($data);
+            return $resultado;
 
         } catch (PDOException $e) {
-            
-            $resultado = $e->getMessage();
-            
-        }
 
-        return $resultado;
+            responseJSON(500, false, $e->getMessage());
+        }
     }
 
     public static function getSP($store, $dataSP = [], $typeFECTH = 'all')
@@ -47,24 +44,20 @@ class ActiveRecord
 
             $stmt = self::$db->prepare($store);
             $stmt->execute($dataSP);
-            
-            
-            if($typeFECTH === 'all'){
-                
-                $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            }else if ($typeFECTH === 'one'){
+
+            if ($typeFECTH === 'all') {
+
+                $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } else if ($typeFECTH === 'one') {
 
                 $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
             }
-    
 
+            return $resultado;
         } catch (PDOException $e) {
-            
-            $resultado = $e->getMessage();
-            
-        }
 
-        return $resultado;
+            responseJSON(500, false, $e->getMessage());
+        }
     }
 }

@@ -41,6 +41,7 @@ class Router
         if ($method === 'GET') {
 
             $fn = $this->rutasGET[$urlActual] ?? null;
+            
         } else if ($method === 'POST') {
 
             $data = count($_POST) > 0
@@ -91,6 +92,7 @@ class Router
         if ($method === 'GET') {
 
             $fn = $this->rutasGET[$urlActual] ?? null;
+            
         } else if ($method === 'POST') {
 
             $fn = $this->rutasPOST[$urlActual] ?? null;

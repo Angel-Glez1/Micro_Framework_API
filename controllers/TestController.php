@@ -2,7 +2,6 @@
 
 namespace App\controllers;
 
-use App\lib\DataBase;
 use App\model\test;
 
 class TestController
@@ -10,14 +9,16 @@ class TestController
 
     public static function index()
     {
-
         responseJSON(200, true, 'Metodo GET', request());
-        exit;
 
-
-
-        responseJSON(200, true, '', test::all());
     }
+
+
+    public static function indexv2()
+    {
+        responseJSON(200, true, 'Hola desde la version 2');
+    }
+
 
     public static function store()
     {
@@ -64,11 +65,11 @@ class TestController
 
     public static function update()
     {
-        responseJSON(200, true, 'Metodo PUT',request());
+        responseJSON(200, true, 'Metodo PUT', request());
     }
 
     public static function delete()
     {
-        responseJSON(200, true, 'Metodo DELETE',request());
+        responseJSON(200, true, 'Metodo DELETE', request());
     }
 }
